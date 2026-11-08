@@ -1,0 +1,71 @@
+{
+  "name": "dsh-plugin-process-cleanup",
+  "version": "0.1.0",
+  "description": "任务收尾清理：任务完成后让模型判断并清理本轮产生的临时过程文件，支持直接删除或移入工作区的 .dsh-trash 回收目录。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "policy.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=22.19.0",
+    "dsh": ">=0.2.1-rc.2 <0.3.0"
+  },
+  "dependencies": {
+    "@deepseek-ai/cosmokit": "~1.8.6",
+    "@deepseek-ai/schemastery": "3.18.5"
+  },
+  "scripts": {
+    "test": "node test/policy.test.mjs && node test/host.test.mjs"
+  },
+  "license": "MIT",
+  "author": "Hu Zhang (https://github.com/zh-Littlebird)",
+  "homepage": "https://github.com/zh-Littlebird/dsh-plugin-process-cleanup#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zh-Littlebird/dsh-plugin-process-cleanup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zh-Littlebird/dsh-plugin-process-cleanup/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cleanup",
+    "workspace",
+    "session"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0 <5.0.0"
+  }
+}

@@ -1,0 +1,7 @@
+- insert:
+    - id: process-cleanup
+      name: dsh-plugin-process-cleanup
+      config:
+        defaultEnabled: false
+        mode: trash
+        skipSubagents: true

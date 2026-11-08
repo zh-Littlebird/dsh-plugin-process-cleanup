@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Task Cleanup",
+    "description": "Lets the model clean up the temporary files it created after a task: move them to a workspace trash folder or delete them, leaving deliverables untouched."
+  }
+}
